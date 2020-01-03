@@ -1,0 +1,18 @@
+.tweet-card {
+    max-width: 300px;
+    margin: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.tweet-card>div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.tweet-info {
+    display: flex;
+    justify-content: space-around;
+}
