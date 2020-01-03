@@ -1,4 +1,5 @@
 const twitStream = require('../model/Twitter');
+const debug = require('debug')('app:cache');
 /**
  * A simple queue based data structure providing the functionality of a cache
  * stores a maximum of 30 tweets within itself
@@ -48,7 +49,7 @@ const cache = new Cache();
 // keep updating the cache incase of new data
 twitStream.on('data', function (event) {
     if (event.retweeted_status) {
-        console.log(event.retweeted_status);
+        debug(event.retweeted_status);
         cache.enqueue(event.retweeted_status);
     }
 });

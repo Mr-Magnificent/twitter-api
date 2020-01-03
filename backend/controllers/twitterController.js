@@ -11,12 +11,10 @@ exports.enableSSE = async (req, res) => {
         'Access-Control-Allow-Origin': '*'
     });
 
-    console.log(JSON.stringify(cache.getCache()));
     res.write(`data: ${JSON.stringify(cache.getCache())}\n\n`);
 
     twitStream.on('data', function (event) {
         if (event.retweeted_status) {
-            console.log(event.retweeted_status);
             res.write(`data: [${JSON.stringify(event.retweeted_status)}]\n\n`);
         }
     });

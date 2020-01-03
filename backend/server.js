@@ -1,11 +1,13 @@
 const express = require('express');
-// const helmet = require('helmet');
+const helmet = require('helmet');
+const compression = require('compression');
 
 const debug = require('debug')('app:');
 require('dotenv').config();
 
 const app = express();
-// app.use(helmet());
+app.use(helmet());
+app.use(compression());
 
 const router = require('./routes');
 
